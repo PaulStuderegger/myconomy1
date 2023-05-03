@@ -8,6 +8,7 @@
       font-family: sans-serif;
     }
     .rainbow-text {
+      width: fit-content;
       background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
