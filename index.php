@@ -4,6 +4,9 @@
   <title>Rainbow Text</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css">
   <style>
+    * {
+      font-family: sans-serif;
+    }
     .rainbow-text {
       background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
       -webkit-background-clip: text;
