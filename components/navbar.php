@@ -1,7 +1,7 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light ">
 <a class="navbar-brand" href="home.php">
-  <img src="../img/myconomy_logo.png" width="30" height="30" class="d-inline-block" alt="myconomy"></a>
+  <img src="../assets/img/myconomy_logo.png" width="50" height="50" class="d-inline-block" alt="myconomy"></a>
 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="home.php">Home </a>
