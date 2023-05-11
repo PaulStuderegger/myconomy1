@@ -11,5 +11,32 @@
 </div>
 <?php include('../components/navbar.php'); ?>
 
+<?php 
+// include pages depending on menu var
+if(isset($_GET['menu'])) {
+  $menu = $_GET['menu'];
+switch($menu) {
+  case 'Einnahmen':
+    include("earnings.php");
+    break;
+  case 'Ausgaben':
+    include("spendings.php");
+    break;
+  case 'Fixkosten':
+    include("fixed.php");
+    break;
+  case 'Sparziele':
+    include("goals.php");
+    break;
+  case 'Kalender':
+    include("calendar.php");
+    break;
+}
+}
+else {
+  $menu = "home";
+}
+?>
+
 </body>
 </html>
