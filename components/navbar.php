@@ -6,11 +6,11 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="home.php">Home </a>
       <form>
-        <input type="submit" name="menu" value="Einnahmen">
-        <input type="submit" name="menu" value="Ausgaben">
-        <input type="submit" name="menu" value="Fixkosten">
-        <input type="submit" name="menu" value="Sparziele">
-        <input type="submit" name="menu" value="Kalender">   
+        <input class="nav-item nav-link d-inline-block" type="submit" name="menu" value="Einnahmen">
+        <input class="nav-item nav-link d-inline-block" type="submit" name="menu" value="Ausgaben">
+        <input class="nav-item nav-link d-inline-block" type="submit" name="menu" value="Fixkosten">
+        <input class="nav-item nav-link d-inline-block" type="submit" name="menu" value="Sparziele">
+        <input class="nav-item nav-link d-inline-block" type="submit" name="menu" value="Kalender">   
       </form>
       <a class="nav-item nav-link" href="../pages/index.php">Logout</a>
     </div>
