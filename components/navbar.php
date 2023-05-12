@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #028A0F;">
 <a class="navbar-brand" href="home.php">
   <img src="../assets/img/myconomy_logo.png" width="50" height="50" class="d-inline-block" alt="myconomy"></a>
 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
