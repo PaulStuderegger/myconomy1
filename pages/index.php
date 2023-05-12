@@ -1,3 +1,9 @@
+<?php
+// DB-Test
+// require_once "..\classes\user.php";
+// $db = new User();
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
