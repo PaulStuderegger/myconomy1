@@ -31,7 +31,7 @@ require_once "..\classes\utils.php";
     }
 
     form .form-group {
-      margin-bottom 12px;
+      margin-bottom: 12px;
     }
 
     form input[type="submit"] {
