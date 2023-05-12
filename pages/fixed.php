@@ -2,7 +2,8 @@
 
 <button id="new_entry">neuer Eintrag</button>
 <form id="new_entry_form" action="../forms/fixed_action.php" method="post">
-  
+
+// Sollte man eventuell selbst anlegen können?
 <legend>Fixkosten: Eintrag hinzufügen</legend>
   <input type="text" placeholder="Verwendungszweck">
   <input type="number" placeholder="Betrag">
