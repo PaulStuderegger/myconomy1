@@ -4,27 +4,24 @@ class User extends Database
 {
 	#region ctor
 	public $userId;
-	public $SurName;
-	public $LastName;
+	public $UserName;
 	public $EMail;
 	public $Password;
 
 	public function __construct()
 	{
-		$this->connect();
+		parent::__construct();
 	}
     
-	public function AddUser($userId = null, $SurName = null, $LastName = null, $EMail = null, $Password = null)
+	public function AddUser($userId = null, $UserName = null, $EMail = null, $Password = null)
 	{
-		$this->connect();
 		$this->userId = $userId;
-		$this->SurName = $SurName;
-		$this->LastName = $LastName;
+		$this->UserName = $UserName;
 		$this->EMail = $EMail;
 		$this->Password = $Password;
 
-        $stmt = $this->pdo->prepare("INSERT INTO User(Surname, LastName, EMail, Password) VALUES (?,?,?,?)");
-		$stmt->execute([$this->SurName, $this->LastName, $this->EMail, $this->Password]);
+        $stmt = $this->pdo->prepare("INSERT INTO User(UserName, EMail, Password) VALUES (?,?,?)");
+		$stmt->execute([$this->UserName, $this->EMail, $this->Password]);
 	}
 	#endregion
 #endregion
