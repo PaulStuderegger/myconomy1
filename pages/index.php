@@ -1,9 +1,14 @@
 <?php
 /* DB-Test
 require_once "..\classes\utils.php";
-  $dbcontent = Utils::executeAnything("select UserName, EMail from User");
-  echo $dbcontent["UserName"] . $dbcontent["EMail"];
-  echo Utils::nextId("User");*/
+  $dbcontent = Utils::executeAnything("select EMail, Password from User");
+  echo Utils::nextId("User");
+  session_start();
+  session_unset();
+  require_once "..\classes\user.php";*/
+session_start();
+session_unset();
+require_once "..\classes\user.php";
 ?>
 
 <!DOCTYPE html>
@@ -80,19 +85,28 @@ require_once "..\classes\utils.php";
                   <!-- <h3 class="fs-2">4920</h3>
                   <p class="fs-5">Sales</p> -->
 
-                  <form action="loginAction.php">
+                  <form method="post" action="./index.php">
+                    <?php
+                      $username = isset($_POST['email']) ? $_POST['email'] : '';
+                      $password = isset($_POST['password']) ? $_POST['password'] : '';
+                    ?>
                     <div class="form-group">
                       <label class="form-label" for="email">Email:</label>
-                      <input class="form-control" type="email" id="email">
+                      <input class="form-control" name="email" type="email" id="email">
                     </div>
 
                     <div class="form-group">
                       <label class="form-label" for="password">Passwort:</label>
-                      <input class="form-control" type="password" id="password">
+                      <input class="form-control" name="password" type="password" id="password">
                     </div>
 
-                    <input type="submit" class="btn btn-success" value="Anmelden">
-                  </form>             
+                    <input type="submit" class="btn btn-success" name="submit" value="Anmelden">
+                  </form>
+                  <?php
+                    if (isset($_POST['submit']) && $username != '' && $password != '') {
+                        User::ValidateUser($username, $password);
+                    }
+                ?>             
                 </div>
               </div>
             </div>

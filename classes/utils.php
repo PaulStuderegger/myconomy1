@@ -38,19 +38,4 @@ class Utils extends Database
         }
         return $stmt->fetch();
     }
-
-    public static function validate($nickName, $password)
-	{
-		$db = new Database();
-		$stmt = $db->pdo->prepare("SELECT * FROM User WHERE UserName = ? and password = ?");
-		$stmt->execute([$nickName, $password]);
-		$res = $stmt->fetch();
-
-		if ($res) {
-			return new User($res["userId"], $res["firstName"], $res["lastName"], $res["nickName"], $res["password"], $res["guest"]);
-		}
-		else {
-			return null;
-		}
-	}
 }
