@@ -4,18 +4,20 @@ class Calender extends Database
 {
 	public $CalenderId;
 	public $CalenderName;
+	public $UserId;
 
-	function __construct($CalenderId = null, $CalenderName = null)
+	function __construct($CalenderId = null, $CalenderName = null, $UserId = null)
 	{
 		parent::__construct();
 		$this->CalenderId = $CalenderId;
 		$this->CalenderName = $CalenderName;
+		$this->UserId = $UserId;
 	}
     
 	public function InsertCalenderToDB()
 	{
-        $stmt = $this->pdo->prepare("INSERT INTO Calender(BalanceDate) VALUES (?)");
-		$stmt->execute([$this->CalenderName]);
+        $stmt = $this->pdo->prepare("INSERT INTO Calender(BalanceDate, UserId) VALUES (?,?)");
+		$stmt->execute([$this->CalenderName, $this->UserId]);
 	}
 
 	public static function GetCalenderById($id)
@@ -26,7 +28,7 @@ class Calender extends Database
 		$res = $stmt->fetch();
 
 		if ($res) {
-			return new Balance($res["CalenderId"], $res["CalenderName"], $res["CalenderEventDate"], $res["CalenderId"], $res["ColourId"]);
+			return new Calender($res["CalenderId"], $res["CalenderName"], $res["UserId"]);
 		}
 		else {
 			return false;

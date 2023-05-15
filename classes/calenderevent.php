@@ -1,6 +1,6 @@
 <?php
 require_once "db.php";
-class Calender extends Database
+class CalenderEvent extends Calender
 {
 	public $CalenderEventId;
 	public $CalenderEventName;
@@ -21,7 +21,7 @@ class Calender extends Database
 	public function InsertCalenderEventToDB()
 	{
         $stmt = $this->pdo->prepare("INSERT INTO CalenderEvent(CalenderEventName, CalenderEventDate, CalenderId, CalenderColourId) VALUES (?,?,?,?)");
-		$stmt->execute([$this->CalenderName, $this->CalenderEventDate, $this->CalenderId, $this->CalenderColourId]);
+		$stmt->execute([$this->CalenderEventName, $this->CalenderEventDate, $this->CalenderId, $this->CalenderColourId]);
 	}
     
 	public function ConnectCalenderEventToCalender($CalenderId)
@@ -30,5 +30,20 @@ class Calender extends Database
 		
         $stmt = $this->pdo->prepare("UPDATE CalenderEvent SET CalenderId = ? WHERE CalenderEventId = ?");
 		$stmt->execute([$calenderData["CalenderId"], $this->CalenderEventId]);
+	}
+    
+    public static function GetCalenderEventById($id)
+	{
+		$db = new Database();
+		$stmt = $db->pdo->prepare("SELECT * FROM CalenderEvent WHERE CalenderEventId = ?");
+		$stmt->execute([$id]);
+		$res = $stmt->fetch();
+
+		if ($res) {
+			return new CalenderEvent($res["CalenderEventId"], $res["CalenderEventName"], $res["CalenderEventDate"], $res["CalenderId"], $res["ColourId"]);
+		}
+		else {
+			return false;
+		}
 	}
 }
