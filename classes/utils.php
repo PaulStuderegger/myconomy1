@@ -30,12 +30,7 @@ class Utils extends Database
     {
         $db = new Database();
         $stmt = $db->pdo->prepare($query);
-        if ($parameterarray <> null) {
-            $stmt->execute([$parameterarray]);
-        }
-        else {
-            $stmt->execute();
-        }
+        $stmt->execute($parameterarray);
         return $stmt->fetch();
     }
 }
