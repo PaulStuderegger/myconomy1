@@ -55,14 +55,14 @@ class User extends Database
 		}
 	}
 
-	public static function ValidateUserSignUp($UserName, $Password, $Email)
+	public static function ValidateUserSignUp($UserName, $Email, $Password)
 	{
 		$db = new Database();
 		$stmt = $db->pdo->prepare("SELECT * FROM User WHERE UserName = ?");
 		$stmt->execute([$UserName]);
-		$res = $stmt->fetchAll();
+		$res = $stmt->fetch();
 
-		if ($res["UserName"] = $UserName || $res["Email"] = $Email) {
+		if ($res) {
 				echo '<br><div class="alert alert-danger" role="alert">UserName or Email is already taken</div>';
 		}
 		else {
