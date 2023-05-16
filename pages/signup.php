@@ -6,8 +6,6 @@ require_once "..\classes\utils.php";
   session_start();
   session_unset();
   require_once "..\classes\user.php";*/
-session_start();
-session_unset();
 require_once "..\classes\user.php";
 ?>
 
@@ -85,7 +83,7 @@ require_once "..\classes\user.php";
                   <!-- <h3 class="fs-2">4920</h3>
                   <p class="fs-5">Sales</p> -->
 
-                  <form method="post" action="./index.php">
+                  <form method="post" action="./signup.php">
                     <?php
                       $username = isset($_POST['email']) ? $_POST['email'] : '';
                       $password = isset($_POST['password']) ? $_POST['password'] : '';
@@ -100,14 +98,15 @@ require_once "..\classes\user.php";
                       <input class="form-control" name="password" type="password" id="password">
                     </div>
 
-                    <a href="signup.php">Ka Account</a>
+                    <div class="form-group">
+                    <label class="form-label" for="username">Benutzername:</label>
+                    <input class="form-control" name="username" type="username" id="username">
+                    </div>
 
-                    <input type="submit" class="btn btn-success" name="submit" value="Anmelden">
+                    <input type="submit" class="btn btn-success" name="submit" value="Registrieren">
                   </form>
                   <?php
-                    if (isset($_POST['submit']) && $username != '' && $password != '') {
-                        User::ValidateUser($username, $password);
-                    }
+                    // Regstrierung
                 ?>             
                 </div>
               </div>
