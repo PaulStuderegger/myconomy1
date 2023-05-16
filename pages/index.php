@@ -1,11 +1,14 @@
 <?php
 /* DB-Test
-require_once "..\classes\utils.php";
-  $dbcontent = Utils::executeAnything("select EMail, Password from User");
   echo Utils::nextId("User");
   session_start();
   session_unset();
   require_once "..\classes\user.php";*/
+require_once "..\classes\utils.php";
+$dbcontent = Utils::executeAnything("select * from User");
+foreach ($dbcontent as $data) {
+  echo $data;
+}
 session_start();
 session_unset();
 require_once "..\classes\user.php";
@@ -87,12 +90,12 @@ require_once "..\classes\user.php";
 
                   <form method="post" action="./index.php">
                     <?php
-                      $username = isset($_POST['email']) ? $_POST['email'] : '';
+                      $username = isset($_POST['username']) ? $_POST['username'] : '';
                       $password = isset($_POST['password']) ? $_POST['password'] : '';
                     ?>
                     <div class="form-group">
-                      <label class="form-label" for="email">Email:</label>
-                      <input class="form-control" name="email" type="email" id="email">
+                      <label class="form-label" for="username">Benutzername:</label>
+                      <input class="form-control" name="username" type="username" id="username">
                     </div>
 
                     <div class="form-group">
@@ -106,9 +109,9 @@ require_once "..\classes\user.php";
                   </form>
                   <?php
                     if (isset($_POST['submit']) && $username != '' && $password != '') {
-                        User::ValidateUser($username, $password);
+                      User::ValidateUserSignIn($username, $password);
                     }
-                ?>             
+                  ?>             
                 </div>
               </div>
             </div>

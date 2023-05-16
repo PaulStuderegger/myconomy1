@@ -85,8 +85,9 @@ require_once "..\classes\user.php";
 
                   <form method="post" action="./signup.php">
                     <?php
-                      $username = isset($_POST['email']) ? $_POST['email'] : '';
+                      $email = isset($_POST['email']) ? $_POST['email'] : '';
                       $password = isset($_POST['password']) ? $_POST['password'] : '';
+                      $username = isset($_POST['username']) ? $_POST['username'] : '';
                     ?>
                     <div class="form-group">
                       <label class="form-label" for="email">Email:</label>
@@ -105,6 +106,11 @@ require_once "..\classes\user.php";
 
                     <input type="submit" class="btn btn-success" name="submit" value="Registrieren">
                   </form>
+                  <?php
+                    if (isset($_POST['submit']) && $username != '' && $password != '') {
+                      User::ValidateUserSignUp($username, $email, $password);
+                    }
+                  ?>  
                   <?php
                     // Regstrierung
                 ?>             

@@ -18,18 +18,19 @@ class User extends Database
 		$this->Password = $Password;
 	}
     
-	public function InsertUserToDB()
+	private function InsertUserToDB()
 	{
 		$hashedPassword = password_hash($this->Password, PASSWORD_DEFAULT);
         $stmt = $this->pdo->prepare("INSERT INTO User(UserName, EMail, Password) VALUES (?,?,?)");
 		$stmt->execute([$this->UserName, $this->EMail, $hashedPassword]);
 	}
 
-    public static function ValidateUser($EMail, $Password)
+    public static function ValidateUserSignIn($UserName, $Password)
 	{
+		
 		$db = new Database();
-		$stmt = $db->pdo->prepare("SELECT * FROM User WHERE EMail = ?");
-		$stmt->execute([$EMail]);
+		$stmt = $db->pdo->prepare("SELECT * FROM User WHERE UserName = ?");
+		$stmt->execute([$UserName]);
 		$res = $stmt->fetch();
 
 		if ($res) {
@@ -51,6 +52,23 @@ class User extends Database
 		}
 		else {
 			echo '<br><div class="alert alert-danger" role="alert">username does not exist</div>';
+		}
+	}
+
+	public static function ValidateUserSignUp($UserName, $Password, $Email)
+	{
+		$db = new Database();
+		$stmt = $db->pdo->prepare("SELECT * FROM User WHERE UserName = ?");
+		$stmt->execute([$UserName]);
+		$res = $stmt->fetchAll();
+
+		if ($res["UserName"] = $UserName || $res["Email"] = $Email) {
+				echo '<br><div class="alert alert-danger" role="alert">UserName or Email is already taken</div>';
+		}
+		else {
+			$NewUser = new User(Utils::nextId("User"), $UserName, $Email, $Password);
+			$NewUser->InsertUserToDB();
+			// nachricht erfolgreich registriert
 		}
 	}
 	
