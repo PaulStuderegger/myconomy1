@@ -7,6 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema MyConomy
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `MyConomy` ;
 
 -- -----------------------------------------------------
 -- Schema MyConomy
@@ -148,7 +149,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `MyConomy`;
 INSERT INTO `MyConomy`.`User` (`UserId`, `UserName`, `EMail`, `Password`) VALUES (DEFAULT, 'Admin', 'admin@test.com', '$2y$10$DOu6DQz93J/oH4HN0hJZeO/vAdxIBEljOUS4qsKcWnjeOZsv07TXy');
-INSERT INTO `MyConomy`.`User` (`UserId`, `UserName`, `EMail`, `Password`) VALUES (DEFAULT, 'User', 'user@test.com', 'abc');
 
 COMMIT;
 
