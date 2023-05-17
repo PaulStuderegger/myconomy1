@@ -5,10 +5,6 @@
   session_unset();
   require_once "..\classes\user.php";*/
 require_once "..\classes\utils.php";
-$dbcontent = Utils::executeAnything("select * from User");
-foreach ($dbcontent as $data) {
-  echo $data;
-}
 session_start();
 session_unset();
 require_once "..\classes\user.php";
