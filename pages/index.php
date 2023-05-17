@@ -29,21 +29,6 @@ require_once "..\classes\user.php";
 
   <!-- <link rel="stylesheet" href="../styles/styles.css">
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script> -->
-
-  <style>
-    form {
-      font-size: 16px;
-    }
-
-    form .form-group {
-      margin-bottom: 12px;
-    }
-
-    form input[type="submit"] {
-      font-size: 16px;
-      margin-top: 15px;
-    }
-  </style>
 </head>
 
 <body>
