@@ -68,7 +68,7 @@ class User extends Database
 		else {
 			$NewUser = new User(Utils::nextId("User"), $UserName, $Email, $Password);
 			$NewUser->InsertUserToDB();
-			// nachricht erfolgreich registriert
+			$NewUser->ValidateUserSignIn($UserName, $Password);
 		}
 	}
 	
