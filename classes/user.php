@@ -47,23 +47,23 @@ class User extends Database
 				header ('Location: home.php');
 			}
 			else {
-				echo '<br><div class="alert alert-danger" role="alert">Wrong password</div>';
+				echo '<br><div class="alert alert-danger" role="alert">Falsches Passwort!</div>';
 			}
 		}
 		else {
-			echo '<br><div class="alert alert-danger" role="alert">username does not exist</div>';
+			echo '<br><div class="alert alert-danger" role="alert">Der Benutzername existiert nicht!</div>';
 		}
 	}
 
 	public static function ValidateUserSignUp($UserName, $Email, $Password)
 	{
 		$db = new Database();
-		$stmt = $db->pdo->prepare("SELECT * FROM User WHERE UserName = ?");
-		$stmt->execute([$UserName]);
+		$stmt = $db->pdo->prepare("SELECT * FROM User WHERE UserName = ? OR EMail = ?");
+		$stmt->execute([$UserName, $Email]);
 		$res = $stmt->fetch();
 
 		if ($res) {
-				echo '<br><div class="alert alert-danger" role="alert">UserName or Email is already taken</div>';
+				echo '<br><div class="alert alert-danger" role="alert">Benutzername oder Mail-Adresse ist bereits vergeben!</div>';
 		}
 		else {
 			$NewUser = new User(Utils::nextId("User"), $UserName, $Email, $Password);

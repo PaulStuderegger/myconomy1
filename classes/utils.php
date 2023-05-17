@@ -21,7 +21,7 @@ class Utils extends Database
     public static function resetDb()
     {
         $db = new Database();
-        $stmt = $db->pdo->prepare(file_get_contents("assets\Sql\McConomyDB.sql"));
+        $stmt = $db->pdo->prepare(file_get_contents("..\assets\Sql\McConomyDB.sql"));
         $stmt->execute();
     }
 
