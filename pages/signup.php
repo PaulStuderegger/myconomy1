@@ -89,6 +89,12 @@ require_once "..\classes\user.php";
                       $password = isset($_POST['password']) ? $_POST['password'] : '';
                       $username = isset($_POST['username']) ? $_POST['username'] : '';
                     ?>
+                    
+                    <div class="form-group">
+                      <label class="form-label" for="username">Benutzername:</label>
+                      <input class="form-control" name="username" type="username" id="username">
+                    </div>
+
                     <div class="form-group">
                       <label class="form-label" for="email">Email:</label>
                       <input class="form-control" name="email" type="email" id="email">
@@ -97,11 +103,6 @@ require_once "..\classes\user.php";
                     <div class="form-group">
                       <label class="form-label" for="password">Passwort:</label>
                       <input class="form-control" name="password" type="password" id="password">
-                    </div>
-
-                    <div class="form-group">
-                    <label class="form-label" for="username">Benutzername:</label>
-                    <input class="form-control" name="username" type="username" id="username">
                     </div>
 
                     <input type="submit" class="btn btn-success" name="submit" value="Registrieren">

@@ -99,7 +99,10 @@ require_once "..\classes\user.php";
                       <input class="form-control" name="password" type="password" id="password">
                     </div>
 
-                    <a href="signup.php">Ka Account</a>
+                    <div class="from-group">
+                      <label for="signup">Noch kein Konto?</label>
+                      <a href="signup.php">Hier Registrieren</a>
+                    </div>
 
                     <input type="submit" class="btn btn-success" name="submit" value="Anmelden">
                   </form>
