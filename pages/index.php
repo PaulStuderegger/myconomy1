@@ -53,15 +53,15 @@ require_once "..\classes\user.php";
         <i class="fas fa-money-bill-wave me-2"></i>My-Conomy</div>
       
         <div class="list-group list-group-flush my-3">
-          <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+          <a href="?menu=funktionen" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-gift me-2"></i>Funktionen
           </a>
-          <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+          <a href="?menu=signin" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-sign-in-alt me-2"></i>Login
           </a>
-          <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+          <!-- <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
             <i class="fas fa-power-off me-2"></i>Logout
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -75,15 +75,30 @@ require_once "..\classes\user.php";
         </nav>
 
         <div class="container-fluid px-4">
-          <div class="row g-3 my-2">
+          <?php
+             if (isset($_GET["menu"]))
+             {
+              switch ($_GET["menu"])
+              {
+                case "signin":
+                  include ("signin.php");
+                  break;
+                case "signup":
+                  include ("signup.php");
+                  break;
+                default:
+                  include ("funktionen.php");
+                  break;
+              }
+             }
+          ?>
+          <!-- <div class="row g-3 my-2">
           
             <div class="col-md-4"></div>
+            
             <div class="col-md-4">
               <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
                 <div>
-                  <!-- <h3 class="fs-2">4920</h3>
-                  <p class="fs-5">Sales</p> -->
-
                   <form method="post" action="./index.php">
                     <?php
                       $username = isset($_POST['username']) ? $_POST['username'] : '';
@@ -116,7 +131,7 @@ require_once "..\classes\user.php";
             </div>
 
             <div class="col-md-4"></div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -148,3 +163,19 @@ require_once "..\classes\user.php";
 
 </body>
 </html>
+
+<!-- 
+ if (isset($_GET["menu"]))
+ {
+  switch ($_GET["menu"])
+  {
+    case "login":
+      include ("login.php");
+      break;
+    default "funktionen":
+      include ("funktionen.php");
+      break;
+  }
+ }
+
+-->
