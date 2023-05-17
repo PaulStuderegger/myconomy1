@@ -67,10 +67,10 @@ require_once "..\classes\user.php";
               switch ($_GET["menu"])
               {
                 case "signin":
-                  include ("signin.php");
+                  include ("../components/signin.php");
                   break;
                 case "signup":
-                  include ("signup.php");
+                  include ("../components/signup.php");
                   break;
                 default:
                   include ("funktionen.php");
