@@ -93,46 +93,6 @@ require_once "..\classes\user.php";
               }
              }
           ?>
-          <!-- <div class="row g-3 my-2">
-          
-            <div class="col-md-4"></div>
-            
-            <div class="col-md-4">
-              <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
-                <div>
-                  <form method="post" action="./index.php">
-                    <?php
-                      $username = isset($_POST['username']) ? $_POST['username'] : '';
-                      $password = isset($_POST['password']) ? $_POST['password'] : '';
-                    ?>
-                    <div class="form-group">
-                      <label class="form-label" for="username">Benutzername:</label>
-                      <input class="form-control" name="username" type="username" id="username">
-                    </div>
-
-                    <div class="form-group">
-                      <label class="form-label" for="password">Passwort:</label>
-                      <input class="form-control" name="password" type="password" id="password">
-                    </div>
-
-                    <div class="from-group">
-                      <label for="signup">Noch kein Konto?</label>
-                      <a href="signup.php">Hier Registrieren</a>
-                    </div>
-
-                    <input type="submit" class="btn btn-success" name="submit" value="Anmelden">
-                  </form>
-                  <?php
-                    if (isset($_POST['submit']) && $username != '' && $password != '') {
-                      User::ValidateUserSignIn($username, $password);
-                    }
-                  ?>             
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4"></div>
-          </div> -->
         </div>
       </div>
     </div>
@@ -147,36 +107,5 @@ require_once "..\classes\user.php";
       el.classList.toggle("toggled");
     };
   </script>
-
-<!-- <div class="wrapper">
-  
-  <?php include '../components/sidebar_beforeLogin.php' ?>
-  
-  <div class="main_content">
-    <div class="header">Home</div>
-      <div class="info">
-        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>
-        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>
-        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>
-      </div>
-  </div>
-</div> -->
-
 </body>
 </html>
-
-<!-- 
- if (isset($_GET["menu"]))
- {
-  switch ($_GET["menu"])
-  {
-    case "login":
-      include ("login.php");
-      break;
-    default "funktionen":
-      include ("funktionen.php");
-      break;
-  }
- }
-
--->
