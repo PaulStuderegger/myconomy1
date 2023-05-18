@@ -58,6 +58,18 @@ require_once "..\classes\user.php";
             <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
             <h2 class="fs-2 m-0">Funktionen</h2>
           </div>
+
+          <div class="d-flex align-items-center">
+            <a class="fs-2 m-0" href="?menu=datenschutz">Datenschutz</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a class="fs-2 m-0" href="?menu=impressum">Impressum</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a class="fs-2 m-0" href="?menu=kontakt">Kontakt</a>
+          </div>
         </nav>
 
         <div class="container-fluid px-4">
@@ -71,6 +83,15 @@ require_once "..\classes\user.php";
                   break;
                 case "signup":
                   include ("../components/signup.php");
+                  break;
+                case "datenschutz":
+                  include ("../components/datenschutz.php");
+                  break;
+                case "impressum":
+                  include ("../components/impressum.php");
+                  break;
+                case "kontakt":
+                  include ("../components/kontakt.php");
                   break;
                 default:
                   include ("funktionen.php");
