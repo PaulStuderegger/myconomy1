@@ -48,6 +48,15 @@ require_once "..\classes\user.php";
           <!-- <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
             <i class="fas fa-power-off me-2"></i>Logout
           </a> -->
+          <a href="?menu=kontakt" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="fas fa-envelope me-2"></i>Kontakt
+          </a>
+          <a href="?menu=datenschutz" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="fas fa-user-secret me-2"></i>Datenschutz
+          </a>
+          <a href="?menu=impressum" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="fas fa-industry me-2"></i>Impressum
+          </a>
         </div>
       </div>
 
@@ -57,18 +66,6 @@ require_once "..\classes\user.php";
           <div class="d-flex align-items-center">
             <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
             <h2 class="fs-2 m-0">Funktionen</h2>
-          </div>
-
-          <div class="d-flex align-items-center">
-            <a class="fs-2 m-0" href="?menu=datenschutz">Datenschutz</a>
-          </div>
-
-          <div class="d-flex align-items-center">
-            <a class="fs-2 m-0" href="?menu=impressum">Impressum</a>
-          </div>
-
-          <div class="d-flex align-items-center">
-            <a class="fs-2 m-0" href="?menu=kontakt">Kontakt</a>
           </div>
         </nav>
 
