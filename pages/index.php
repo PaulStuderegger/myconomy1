@@ -26,7 +26,6 @@ require_once "..\classes\user.php";
     
     <!-- eigenes CSS -->
     <link rel="stylesheet" href="../styles/styles.css" />
-    <link rel="stylesheet" href="../styles/sidebar.css" />
 
   <!-- <link rel="stylesheet" href="../styles/styles.css">
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script> -->
@@ -46,6 +45,18 @@ require_once "..\classes\user.php";
           <div class="d-flex align-items-center">
             <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
             <h2 class="fs-2 m-0">Funktionen</h2>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a class="fs-2 m-0" href="?menu=datenschutz">Datenschutz</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a class="fs-2 m-0" href="?menu=impressum">Impressum</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a class="fs-2 m-0" href="?menu=kontakt">Kontakt</a>
           </div>
         </nav>
 
