@@ -1,5 +1,14 @@
 <?php
 require_once "..\classes\user.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST["username"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+
+  // Validate the login credentials
+  User::ValidateUserSignUp($username, $email, $password);
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,11 +41,11 @@ require_once "..\classes\user.php";
       <div class="col-md-4">
         <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
           <div>
-            <form method="post" action="./signup.php">
+            <form method="post" action="./index.php?menu=signup">
               <?php
+                $username = isset($_POST['username']) ? $_POST['username'] : '';
                 $email = isset($_POST['email']) ? $_POST['email'] : '';
                 $password = isset($_POST['password']) ? $_POST['password'] : '';
-                $username = isset($_POST['username']) ? $_POST['username'] : '';
               ?>
                     
               <div class="form-group">
@@ -55,14 +64,7 @@ require_once "..\classes\user.php";
               </div>
 
               <input type="submit" class="btn btn-success" name="submit" value="Registrieren">
-            </form>
-            
-            <?php
-              if (isset($_POST['submit']) && $username != '' && $password != '')
-              {
-                User::ValidateUserSignUp($username, $email, $password);
-              }
-            ?>             
+            </form>      
           </div>
         </div>
       </div>
