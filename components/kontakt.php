@@ -39,14 +39,7 @@
               </div>
 
               <input type="submit" class="btn btn-success" name="submit" value="Anmelden">
-            </form>
-              
-            <?php
-              if (isset($_POST['submit']) && $username != '' && $password != '')
-              {
-                User::ValidateUserSignIn($username, $password);
-              }
-            ?>             
+            </form>           
           </div>
         </div>
       </div>
