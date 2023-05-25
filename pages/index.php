@@ -54,6 +54,9 @@ require_once "..\classes\user.php";
              {
               switch ($_GET["menu"])
               {
+                case "dashboard":
+                  include ("../components/dashboard.php");
+                  break;
                 case "template":
                   include ("../components/template.php");
                   break;
