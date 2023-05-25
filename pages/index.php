@@ -7,7 +7,6 @@
 require_once "..\classes\utils.php";
 // Utils::resetDb();
 session_start();
-session_unset();
 require_once "..\classes\user.php";
 ?>
 

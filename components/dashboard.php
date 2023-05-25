@@ -1,3 +1,14 @@
+<?php
+/*$_SESSION['loggedUser'] = array(
+    "UserId"=>1,
+    "UserName"=>"Test",
+    "EMail"=>"test@test.at",
+    "Password"=>"Password"
+);*/
+require_once "..\classes\balance.php";
+require_once "..\classes\user.php";
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
     <div class="d-flex align-items-center">
         <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
@@ -15,7 +26,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-user me-2"></i>John Doe
+                    <i class="fas fa-user me-2"></i><?php echo $_SESSION['loggedUser']["UserName"] ?>
                 </a>
                 
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -31,72 +42,51 @@
 <div class="container-fluid px-4">
     <div class="row g-3 my-2">
         
-        <div class="col-md-7">
+        <div class="col-md-6">
             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
                     <br>
                     <br>
-                    <h3 class="fs-1">999.999,--  €</h3>
+                    <br>
+                    <br>
+                    <h3 class="fs-1 font-monospace Amount">
+                        <?php 
+                            $BalanceOfCurrentUser = Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"]);
+                            echo $BalanceOfCurrentUser->BalanceAmount;
+                        ?>
+                        <i class='fas fa-euro-sign' aria-hidden='true'></i>
+                    </h3>
+                    <br>
+                    <br>
+                    <br>
                     <br>
                     <br>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                <div>
-                    <h3 class="fs-2">4920</h3>
-                    <p class="fs-5">Sales</p>
-                </div>
-                <i class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-            </div>
-        </div>
-
-    <div class="row my-5">
-        <h3 class="fs-4 mb-3">Recent Orders</h3>
-        
-        <div class="col">
+        <div class="col col-md-3">
             <table class="table bg-white rounded shadow-sm  table-hover">
                 <thead>
                     <tr>
-                        <th scope="col" width="50">#</th>
                         <th scope="col">Product</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Price</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Television</td>
-                        <td>Jonny</td>
-                        <td>$1200</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Laptop</td>
-                        <td>Kenny</td>
-                        <td>$750</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Cell Phone</td>
-                        <td>Jenny</td>
-                        <td>$600</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Fridge</td>
-                        <td>Killy</td>
-                        <td>$300</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Books</td>
-                        <td>Filly</td>
-                        <td>$120</td>
-                    </tr>
+                    <h3 class="fs-4 mb-3">Recent Transactions</h3>
+                    <?php
+                        $Balance = Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"]);
+
+                        for ($i=0; $i < 5; $i++) { 
+                            echo "<tr>";
+                            echo "<td>Transaktiosart</td>";
+                            echo "<td>Anmerkungen</td>";
+                            echo "<td>$Balance->BalanceAmount</td>";
+                            echo "</tr>";
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>

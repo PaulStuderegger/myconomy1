@@ -25,7 +25,7 @@
             VORLAGE
         </a>
         <a href="?menu=dashboard" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            Dashboard
+        <i class="fas fa-chart-area me-2"></i>Dashboard
         </a>
     </div>
 </div>
