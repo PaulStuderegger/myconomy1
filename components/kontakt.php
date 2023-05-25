@@ -23,11 +23,6 @@
         <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
           <div>
             <form method="post" action="./index.php">
-              <!-- <?php
-                $username = isset($_POST['username']) ? $_POST['username'] : '';
-                $password = isset($_POST['password']) ? $_POST['password'] : '';
-              ?> -->
-                    
               <div class="form-group">
                 <label class="form-label" for="betreff">Betreff:</label>
                 <input class="form-control" name="betreff" type="text" id="betreff" required>
@@ -39,14 +34,7 @@
               </div>
 
               <input type="submit" class="btn btn-success" name="submit" value="Anmelden">
-            </form>
-              
-            <?php
-              if (isset($_POST['submit']) && $username != '' && $password != '')
-              {
-                User::ValidateUserSignIn($username, $password);
-              }
-            ?>             
+            </form>           
           </div>
         </div>
       </div>
