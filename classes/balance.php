@@ -1,5 +1,6 @@
 <?php
 require_once "db.php";
+require_once "user.php";
 class Balance extends Database
 {
 	public $BalanceId;
@@ -16,10 +17,10 @@ class Balance extends Database
 		$this->UserId = $UserId;
 	}
     
-    public static function GetBalanceById($id)
+    public static function GetBalanceByUserId($id)
 	{
 		$db = new Database();
-		$stmt = $db->pdo->prepare("SELECT * FROM Balance WHERE BalanceId = ?");
+		$stmt = $db->pdo->prepare("SELECT * FROM Balance WHERE UserId = ?");
 		$stmt->execute([$id]);
 		$res = $stmt->fetch();
 
@@ -39,7 +40,7 @@ class Balance extends Database
     
 	public function UpdateBalance($TransactionAmount)
 	{
-        $NewBalance = $this->GetBalanceById($this->BalanceId)["BalanceAmount"] += $TransactionAmount;
+        $NewBalance = $this->GetBalanceByUserId($this->UserId)["BalanceAmount"] += $TransactionAmount;
         $stmt = $this->pdo->prepare("UPDATE Balance SET BalanceAmount = ? WHERE BalanceId = ?");
 		$stmt->execute([$NewBalance, $this->BalanceId]);
 	}

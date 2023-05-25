@@ -23,11 +23,12 @@ class User extends Database
 		$hashedPassword = password_hash($this->Password, PASSWORD_DEFAULT);
         $stmt = $this->pdo->prepare("INSERT INTO User(UserName, EMail, Password) VALUES (?,?,?)");
 		$stmt->execute([$this->UserName, $this->EMail, $hashedPassword]);
+
+		$this->ConnectUserToBalance();
 	}
 
     public static function ValidateUserSignIn($UserName, $Password)
 	{
-		
 		$db = new Database();
 		$stmt = $db->pdo->prepare("SELECT * FROM User WHERE UserName = ?");
 		$stmt->execute([$UserName]);
@@ -69,13 +70,15 @@ class User extends Database
 		else {
 			$NewUser = new User(Utils::nextId("User"), $UserName, $Email, $Password);
 			$NewUser->InsertUserToDB();
+			$NewBalance = new Balance(Utils::nextId("Balance"), 1000.50, "2023-05-25", $NewUser->UserId);
+			$NewBalance->InsertBalanceToDB();
 			$NewUser->ValidateUserSignIn($UserName, $Password);
 		}
 	}
 	
 	public function ConnectUserToBalance()
 	{
-		$balance = new Balance(Utils::nextId("Balance"), 0.0, date("d-m-y"), $this->UserId);
+		$balance = new Balance(Utils::nextId("Balance"), 0.0, date("y-m-d"), $this->UserId);
 		$balance->InsertBalanceToDB();
 	}
 	
@@ -83,5 +86,20 @@ class User extends Database
 	{
 		$calender = new Calender(Utils::nextId("Calender"), "Kalender", $this->UserId);
 		$calender->InsertCalenderToDB();
+	}
+	
+	public static function GetUserById($id)
+	{
+		$db = new Database();
+		$stmt = $db->pdo->prepare("SELECT * FROM User WHERE UserId = ?");
+		$stmt->execute([$id]);
+		$res = $stmt->fetch();
+
+		if ($res) {
+			return new Balance($res["UserId"], $res["UserName"], $res["EMail"], $res["Password"]);
+		}
+		else {
+			return false;
+		}
 	}
 }
