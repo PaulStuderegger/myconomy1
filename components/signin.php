@@ -8,7 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Validate the login credentials
   User::ValidateUserSignIn($username, $password);
 }
-
 ?>
 
 <!DOCTYPE html>
