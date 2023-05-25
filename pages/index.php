@@ -57,17 +57,20 @@ require_once "..\classes\user.php";
           <a href="?menu=impressum" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-industry me-2"></i>Impressum
           </a>
+          <a href="?menu=template" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            VORLAGE
+          </a>
         </div>
       </div>
 
       <!-- Page Content -->
       <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
           <div class="d-flex align-items-center">
             <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
             <h2 class="fs-2 m-0">Funktionen</h2>
           </div>
-        </nav>
+        </nav> -->
 
         <div class="container-fluid px-4">
           <?php
@@ -75,6 +78,9 @@ require_once "..\classes\user.php";
              {
               switch ($_GET["menu"])
               {
+                case "template":
+                  include ("../components/template.php");
+                  break;
                 case "signin":
                   include ("../components/signin.php");
                   break;
