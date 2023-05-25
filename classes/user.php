@@ -44,7 +44,8 @@ class User extends Database
 					"EMail"=>$UserData->EMail,
 					"Password"=>$UserData->Password
 				);
-				header ('Location: home.php');
+				header ('Location: index.php');
+				exit;
 			}
 			else {
 				echo '<br><div class="alert alert-danger" role="alert">Falsches Passwort!</div>';

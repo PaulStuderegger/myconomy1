@@ -1,5 +1,14 @@
 <?php
 require_once "..\classes\user.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+
+  // Validate the login credentials
+  User::ValidateUserSignIn($username, $password);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +38,7 @@ require_once "..\classes\user.php";
       <div class="col-md-4">
         <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
           <div>
-            <form method="post" action="./index.php">
+            <form method="post" action="./index.php?menu=signin">
               <?php
                 $username = isset($_POST['username']) ? $_POST['username'] : '';
                 $password = isset($_POST['password']) ? $_POST['password'] : '';
@@ -51,14 +60,7 @@ require_once "..\classes\user.php";
               </div>
 
               <input type="submit" class="btn btn-success" name="submit" value="Anmelden">
-            </form>
-              
-            <?php
-              if (isset($_POST['submit']) && $username != '' && $password != '')
-              {
-                User::ValidateUserSignIn($username, $password);
-              }
-            ?>             
+            </form>          
           </div>
         </div>
       </div>
