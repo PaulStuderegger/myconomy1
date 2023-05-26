@@ -1,15 +1,3 @@
-<?php
-require_once "..\classes\user.php";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $username = $_POST["username"];
-  $password = $_POST["password"];
-
-  // Validate the login credentials
-  User::ValidateUserSignIn($username, $password);
-}
-?>
-
 <!-- header -->
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
   <div class="d-flex align-items-center">
