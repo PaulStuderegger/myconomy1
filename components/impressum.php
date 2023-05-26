@@ -1,42 +1,39 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-	<title>Impressum</title>
+<!-- header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+  <div class="d-flex align-items-center">
+    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+    <h2 class="fs-2 m-0">Impressum</h2>
+  </div>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- eigenes CSS -->
-    <link rel="stylesheet" href="../styles/styles.css" />
-    <link rel="stylesheet" href="../styles/login.css" />
-</head>
+  <!-- user logout -->
+  <?php
+    include ("../components/user_logout.php");
+  ?>
+</nav>
 
-<body>
-  <div class="container-fluid px-4">
-    <div class="row g-3 my-2">
+<!-- main content -->
+<div class="container-fluid px-4">
+  <div class="row g-3 my-2">
           
-      <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
             
-      <div class="col-md-4">
-        <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
-          <div>
-            <h5>Unternehmen:</h5>
-            <p>MyConomy</p>
-            <p>Wienerstraße 181</p>
-            <p>4020 Linz</p>
-            <br></br>
-            <h5>Geschäftsführer:</h5>
-            <p>Max Mustermann</p>
-            <p>Tel: +43 (677) 12345678</p>
-            <p>E-Mail: Max.Mustermann@students.bs-linz2.ac.at</p>
-          </div>
+    <div class="col-md-4">
+      <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
+        <div>
+          <h5>Unternehmen:</h5>
+          <p>MyConomy</p>
+          <p>Wienerstraße 181</p>
+          <p>4020 Linz</p>
+          <br></br>
+          <h5>Geschäftsführer:</h5>
+          <p>Max Mustermann</p>
+          <p>Tel: +43 (677) 12345678</p>
+          <p>E-Mail: Max.Mustermann@students.bs-linz2.ac.at</p>
         </div>
       </div>
-
-      <div class="col-md-4"></div>
     </div>
+
+    <div class="col-md-4"></div>
+
   </div>
-</body>
-</html>
+</div>
