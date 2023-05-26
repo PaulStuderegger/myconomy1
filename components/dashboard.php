@@ -7,6 +7,7 @@
 );*/
 require_once "..\classes\balance.php";
 require_once "..\classes\user.php";
+require_once "..\classes" . DIRECTORY_SEPARATOR . "transaction.php";
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
@@ -69,22 +70,22 @@ require_once "..\classes\user.php";
             <table class="table bg-white rounded shadow-sm  table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Product</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Transaktionstyp</th>
+                        <th scope="col">Betrag</th>
                     </tr>
                 </thead>
                 <tbody>
                     <h3 class="fs-4 mb-3">Recent Transactions</h3>
                     <?php
-                        $Balance = Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"]);
-
-                        for ($i=0; $i < 5; $i++) { 
-                            echo "<tr>";
-                            echo "<td>Transaktiosart</td>";
-                            echo "<td>Anmerkungen</td>";
-                            echo "<td>$Balance->BalanceAmount</td>";
-                            echo "</tr>";
+                        $Transactions = Transaction::GetTransactionsByUserId($_SESSION['loggedUser']["UserId"], 5);
+                        if ($Transactions) 
+                        {
+                            foreach ($Transactions as $TransactionDS) {
+                                echo "<tr>";
+                                echo "<td>" . Transaction::GetTransactionType($TransactionDS["TransactionId"]) . "</td>";
+                                echo "<td>" . $TransactionDS["TransactionAmount"] . "</td>";
+                                echo "</tr>";
+                            }
                         }
                     ?>
                 </tbody>
