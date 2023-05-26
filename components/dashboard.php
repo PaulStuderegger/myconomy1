@@ -31,7 +31,7 @@ require_once "..\classes" . DIRECTORY_SEPARATOR . "transaction.php";
                     <br>
                     <br>
                     <br>
-                    <h3 class="fs-1 font-monospace Amount">
+                    <h3 class="fs-1 font-monospace Amount" id="balanceamount">
                         <?php 
                             $BalanceOfCurrentUser = Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"]);
                             echo $BalanceOfCurrentUser->BalanceAmount;
