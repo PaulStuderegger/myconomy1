@@ -24,6 +24,7 @@ require_once "..\classes\user.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     
     <!-- eigenes CSS -->
+    <link rel="stylesheet" href="../styles/functions.css" />
     <link rel="stylesheet" href="../styles/styles.css" />
 
   <!-- <link rel="stylesheet" href="../styles/styles.css">
@@ -75,7 +76,7 @@ require_once "..\classes\user.php";
                   include ("../components/kontakt.php");
                   break;
                 default:
-                  include ("funktionen.php");
+                  include ("../components/functions.php");
                   break;
               }
              }
