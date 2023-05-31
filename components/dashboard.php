@@ -56,7 +56,7 @@ require_once "..\classes" . DIRECTORY_SEPARATOR . "transaction.php";
                     </tr>
                 </thead>
                 <tbody>
-                    <h3 class="fs-4 mb-3">Recent Transactions</h3>
+                    <h1 class="fs-4 mb-3">Recent Transactions</h1>
                     <?php
                         $Transactions = Transaction::GetTransactionsByUserId($_SESSION['loggedUser']["UserId"], 5);
                         if ($Transactions) 
