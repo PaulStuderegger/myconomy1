@@ -17,9 +17,13 @@
         <div class="col-md-1"></div>
 
         <div class="col-md-4">
-            <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
+            <div class="info-container p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
                 <div>
                     <img src="../assets/img/func_dashboard.png" alt="Dashboard">
+                </div>
+                <div class="overlay">
+                    <h3>Bilanz</h3>
+                    <p>Lorem ipsum dolor sit met, ...</p>
                 </div>
             </div>
         </div>
@@ -27,9 +31,13 @@
         <div class="col-md-2"></div>
         
         <div class="col-md-4">
-            <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
+            <div class="info-container p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
                 <div>
                     <img src="../assets/img/func_calendar.png" alt="Kalender">
+                </div>
+                <div class="overlay">
+                    <h3>Kalender</h3>
+                    <p>Lorem ipsum dolor sit met, ...</p>
                 </div>
             </div>
         </div>
@@ -40,9 +48,13 @@
         <div class="col-md-1"></div>
 
         <div class="col-md-4">
-            <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
+            <div class="info-container p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
                 <div>
                     <img src="../assets/img/func_forecast.png" alt="Dashboard">
+                </div>
+                <div class="overlay">
+                    <h3>Prognose</h3>
+                    <p>Lorem ipsum dolor sit met, ...</p>
                 </div>
             </div>
         </div>
@@ -50,9 +62,13 @@
         <div class="col-md-2"></div>
 
         <div class="col-md-4">
-            <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
+            <div class="info-container p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
                 <div>
                     <img src="../assets/img/func_savings.png" alt="Sparen">
+                </div>
+                <div class="overlay">
+                    <h3>Sparen</h3>
+                    <p>Lorem ipsum dolor sit met, ...</p>
                 </div>
             </div>
         </div>

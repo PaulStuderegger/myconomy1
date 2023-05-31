@@ -1,5 +1,27 @@
-h3 {
-    text-align: center;
+.info-container {
+    margin: 2%;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.info-container:hover .overlay {
+    height: 100%;
+    padding: 1%;
+}
+
+.info-container:hover .overlay p {
+    color: #fff;
 }
 
 img {
@@ -9,4 +31,14 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+h3 {
+    color: #fff;
+    text-align: center;
+    padding-top: 3px;
+}
+
+p {
+    padding: 3px;
 }
