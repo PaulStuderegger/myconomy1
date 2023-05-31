@@ -22,8 +22,8 @@
                     <img src="../assets/img/func_dashboard.png" alt="Dashboard">
                 </div>
                 <div class="overlay">
-                    <h3>Bilanz</h3>
-                    <p>Lorem ipsum dolor sit met, ...</p>
+                    <h3 class="white-text">Bilanz</h3>
+                    <p class="white-text">Lorem ipsum dolor sit met, ...</p>
                 </div>
             </div>
         </div>
@@ -36,8 +36,8 @@
                     <img src="../assets/img/func_calendar.png" alt="Kalender">
                 </div>
                 <div class="overlay">
-                    <h3>Kalender</h3>
-                    <p>Lorem ipsum dolor sit met, ...</p>
+                    <h3 class="white-text">Kalender</h3>
+                    <p class="white-text">Lorem ipsum dolor sit met, ...</p>
                 </div>
             </div>
         </div>
@@ -53,8 +53,8 @@
                     <img src="../assets/img/func_forecast.png" alt="Dashboard">
                 </div>
                 <div class="overlay">
-                    <h3>Prognose</h3>
-                    <p>Lorem ipsum dolor sit met, ...</p>
+                    <h3 class="white-text">Prognose</h3>
+                    <p class="white-text">Lorem ipsum dolor sit met, ...</p>
                 </div>
             </div>
         </div>
@@ -67,8 +67,8 @@
                     <img src="../assets/img/func_savings.png" alt="Sparen">
                 </div>
                 <div class="overlay">
-                    <h3>Sparen</h3>
-                    <p>Lorem ipsum dolor sit met, ...</p>
+                    <h3 class="white-text">Sparen</h3>
+                    <p class="white-text">Lorem ipsum dolor sit met, ...</p>
                 </div>
             </div>
         </div>
