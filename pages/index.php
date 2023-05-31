@@ -80,6 +80,10 @@ require_once "..\classes\user.php";
                   break;
               }
              }
+             else
+             {
+              include ("../components/functions.php");
+             }
           ?>
         </div>
       </div>
