@@ -44,4 +44,19 @@ class Balance extends Database
         $stmt = $this->pdo->prepare("UPDATE Balance SET BalanceAmount = ? WHERE BalanceId = ?");
 		$stmt->execute([$NewBalance, $this->BalanceId]);
 	}
+	
+	public function GetReoccuringTransactionsByBalanceId()
+	{
+        $stmt = $this->pdo->prepare("SELECT sum(TransactionAmount) as 'Amount' FROM Transaction JOIN TransactionType USING(TransactionTypeId) JOIN Balance USING(BalanceId) WHERE TransactionTypeId = 6 AND BalanceId = ?");
+		$stmt->execute([$this->BalanceId]);
+		
+		$res = $stmt->fetch();
+
+		if ($res) {
+			return $res["Amount"];
+		}
+		else {
+			return false;
+		}
+	}
 }

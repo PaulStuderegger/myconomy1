@@ -29,7 +29,13 @@ require_once "..\classes" . DIRECTORY_SEPARATOR . "transaction.php";
                 <div>
                     <br>
                     <br>
-                    <br>
+                    <h3 class="fs-1 font-monospace Amount" id="Pingpong">
+                    <?php
+                            $BalanceOfCurrentUser = Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"]);
+                            echo $BalanceOfCurrentUser->GetReoccuringTransactionsByBalanceId();
+                        ?>
+                        <i class='fas fa-euro-sign' aria-hidden='true'></i>
+                    </h3>
                     <br>
                     <h3 class="fs-1 font-monospace Amount" id="balanceamount">
                         <?php 
