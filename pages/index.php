@@ -37,14 +37,7 @@ require_once "..\classes\user.php";
     <!-- Sidebar -->
     <div class="bg-white" id="sidebar-wrapper">
       <?php
-        if (isset($_SESSION['logged']))
-        {
-          include ("../components/sidebar_post_login.php");
-        }
-        else
-        {
-          include ("../components/sidebar_pre_login.php");
-        }
+      include ("../components/sidebar_pre_login.php");
       ?>
 
       <!-- Page Content -->
