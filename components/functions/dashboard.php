@@ -17,7 +17,7 @@ require_once "..\classes" . DIRECTORY_SEPARATOR . "transaction.php";
     </div>
 
     <?php
-        include ("../components/user_logout.php");
+        include ("../components/other/user_logout.php");
     ?>
 </nav>
 

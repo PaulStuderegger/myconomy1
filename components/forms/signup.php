@@ -17,10 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
     <h2 class="fs-2 m-0">Registrieren</h2>
   </div>
-
-  <?php
-    include ("../components/user_logout.php");
-  ?>
 </nav>
 
 <!-- main content -->

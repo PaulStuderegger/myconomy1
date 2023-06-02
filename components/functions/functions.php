@@ -6,7 +6,7 @@
     </div>
 
     <?php
-        include ("../components/user_logout.php");
+        include ("../components/other/user_logout.php");
     ?>
 </nav>
 

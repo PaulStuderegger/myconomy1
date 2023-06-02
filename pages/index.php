@@ -31,11 +31,11 @@ session_start();
       <?php
         if (isset($_SESSION['logged']))
         {
-          include ("../components/sidebar_post_login.php");
+          include ("../components/sidebar/sidebar_post_login.php");
         }
         else
         {
-          include ("../components/sidebar_pre_login.php");
+          include ("../components/sidebar/sidebar_pre_login.php");
         }
       ?>
 
@@ -48,34 +48,34 @@ session_start();
               switch ($_GET["menu"])
               {
                 case "dashboard":
-                  include ("../components/dashboard.php");
+                  include ("../components/functions/dashboard.php");
                   break;
                 case "template":
                   include ("../components/template.php");
                   break;
                 case "signin":
-                  include ("../components/signin.php");
+                  include ("../components/forms/signin.php");
                   break;
                 case "signup":
-                  include ("../components/signup.php");
+                  include ("../components/forms/signup.php");
                   break;
+                  case "kontakt":
+                    include ("../components/forms/kontakt.php");
+                    break;
                 case "datenschutz":
-                  include ("../components/datenschutz.php");
+                  include ("../components/other/datenschutz.php");
                   break;
                 case "impressum":
-                  include ("../components/impressum.php");
-                  break;
-                case "kontakt":
-                  include ("../components/kontakt.php");
+                  include ("../components/other/impressum.php");
                   break;
                 default:
-                  include ("../components/functions.php");
+                  include ("../components/functions/functions.php");
                   break;
               }
              }
              else
              {
-              include ("../components/functions.php");
+              include ("../components/functions/functions.php");
              }
           ?>
         </div>
