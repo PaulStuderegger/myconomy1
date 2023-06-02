@@ -5,7 +5,7 @@ class Database
     protected $db_name = "MyConomy";
     protected $db_user = "root"; // eigener Nutzername von Server
     protected $db_password = "password"; // eigenes Passwort für Server
-    protected $db_port = 3307; // eigener Port des Server
+    protected $db_port = 3306; // eigener Port des Server
     public $pdo;
 
     // create connection
