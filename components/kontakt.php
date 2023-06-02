@@ -19,7 +19,13 @@
     <div class="col-md-4">
       <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
         <div>
-          <form method="post" action="./index.php">
+          <form method="post" action="">
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email:</label>
+              <input class="form-control" name="email" type="email" id="email" required>
+            </div>
+          
             <div class="form-group">
               <label class="form-label" for="betreff">Betreff:</label>
               <input class="form-control" name="betreff" type="text" id="betreff" required>
@@ -27,10 +33,11 @@
 
             <div class="from-group">
               <label class="form-label" for="signup">Nachricht:</label>
-              <textarea name="nachricht" id="nachricht" cols="30" rows="10" required></textarea>
+              <textarea class="form-control" name="nachricht" id="nachricht" cols="30" rows="10" required></textarea>
             </div>
 
-            <input type="submit" class="btn btn-success" name="submit" value="Anmelden">
+            <input type="submit" class="btn btn-success" name="submit" value="Absenden">
+
           </form>           
         </div>
       </div>

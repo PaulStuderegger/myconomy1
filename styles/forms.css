@@ -2,12 +2,16 @@ form {
     font-size: 16px;
   }
 
-  form .form-group {
+form .form-group {
     margin-bottom: 12px;
-  }
+}
 
-  form input[type="submit"] {
+form input[type="submit"] {
     font-size: 16px;
     margin-top: 15px;
     width: 100%;
-  }
+}
+
+form textarea {
+    width: 100%;
+}

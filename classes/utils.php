@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "dbconfig.php";
 class Utils extends Database
 {
     // Holt sich die ID für den nächsten Eintrag in eine Tabelle
