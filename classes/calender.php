@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "dbconfig.php";
 class Calender extends Database
 {
 	public $CalenderId;

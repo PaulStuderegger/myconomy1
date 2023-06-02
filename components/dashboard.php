@@ -29,13 +29,6 @@ require_once "..\classes" . DIRECTORY_SEPARATOR . "transaction.php";
                 <div>
                     <br>
                     <br>
-                    <h3 class="fs-1 font-monospace Amount" id="Pingpong">
-                    <?php
-                            $BalanceOfCurrentUser = Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"]);
-                            echo $BalanceOfCurrentUser->GetReoccuringTransactionsByBalanceId();
-                        ?>
-                        <i class='fas fa-euro-sign' aria-hidden='true'></i>
-                    </h3>
                     <br>
                     <h3 class="fs-1 font-monospace Amount" id="balanceamount">
                         <?php 
@@ -50,6 +43,22 @@ require_once "..\classes" . DIRECTORY_SEPARATOR . "transaction.php";
                     <br>
                     <br>
                 </div>
+            </div>
+            <div class="p-3 bg-white shadow-sm d-flex align-items-center rounded">
+                <h3 class="fs-1 font-monospace Amount" id="Fixeinnahmen">
+                <?php
+                        $BalanceOfCurrentUser = Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"]);
+                        echo $BalanceOfCurrentUser->GetReoccuringTransactionsByBalanceId(6);
+                    ?>
+                    <i class='fas fa-euro-sign' aria-hidden='true'></i>
+                </h3>
+                <h3 class="fs-1 font-monospace Amount" id="Fixausgaben">
+                <?php
+                        $BalanceOfCurrentUser = Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"]);
+                        echo $BalanceOfCurrentUser->GetReoccuringTransactionsByBalanceId(7);
+                    ?>
+                    <i class='fas fa-euro-sign' aria-hidden='true'></i>
+                </h3>
             </div>
         </div>
 
