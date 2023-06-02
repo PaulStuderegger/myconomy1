@@ -2,9 +2,11 @@
 class Database
 {
     protected $db_host = 'localhost';
-    protected $db_name = "MyConomy";
+    // protected $db_host = 'localhost';
+    protected $db_name = "myconomy";
+    // protected $db_name = "MyConomy";
     protected $db_user = "root"; // eigener Nutzername von Server
-    protected $db_password = ""; // eigenes Passwort für Server
+    protected $db_password = "SilverLining34"; // eigenes Passwort für Server
     protected $db_port = 3307; // eigener Port des Server
     public $pdo;
 
