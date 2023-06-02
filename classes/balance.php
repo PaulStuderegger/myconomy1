@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "dbconfig.php";
 require_once "user.php";
 class Balance extends Database
 {
@@ -45,10 +45,10 @@ class Balance extends Database
 		$stmt->execute([$NewBalance, $this->BalanceId]);
 	}
 	
-	public function GetReoccuringTransactionsByBalanceId()
+	public function GetReoccuringTransactionsByBalanceId($InOrOutgoing)
 	{
-        $stmt = $this->pdo->prepare("SELECT sum(TransactionAmount) as 'Amount' FROM Transaction JOIN TransactionType USING(TransactionTypeId) JOIN Balance USING(BalanceId) WHERE TransactionTypeId = 6 AND BalanceId = ?");
-		$stmt->execute([$this->BalanceId]);
+        $stmt = $this->pdo->prepare("SELECT sum(TransactionAmount) as 'Amount' FROM Transaction JOIN TransactionType USING(TransactionTypeId) JOIN Balance USING(BalanceId) WHERE TransactionTypeId = ? AND BalanceId = ?");
+		$stmt->execute([$InOrOutgoing, $this->BalanceId]);
 		
 		$res = $stmt->fetch();
 

@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "dbconfig.php";
 require_once "balance.php";
 require_once "utils.php";
 class User extends Database
