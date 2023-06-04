@@ -55,6 +55,15 @@
   width: 15rem;
 }
 
+#sidebar-wrapper .logout-button {
+  border: none;
+  background-color: #e3242b;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 10px;
+  width: 50%;
+}
+
 #page-content-wrapper {
   min-width: 100vw;
 }

@@ -3,13 +3,13 @@
         <i class="fas fa-money-bill-wave me-2"></i>MyConomy
     </div>
     
-    <div class="list-group list-group-flush my-3 border-bottom">
-        <span class="list-group-item list-group-item-action bg-transparent main-text fw-bold text-center">
+    <div class="list-group list-group-flush my-3 text-center">
+        <span class="fw-bold">
             <?php echo $_SESSION['loggedUser']["UserName"]; ?>
         </span>
         
-        <form method="post">
-            <button type="submit" name="logoutbtn">
+        <form method="post" id="logoutform">
+            <button class="logout-button fw-bold" type="submit" name="logoutbtn">
                 <i class="fas fa-power-off me-2"></i>
                 Abmelden
             </button>
@@ -27,7 +27,7 @@
         ?>
     </div>
 
-    <div class="list-group list-group-flush my-3">
+    <div class="list-group list-group-flush my-3 border-top">
         <a href="?menu=funktionen" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-list me-2"></i>
             Funktionen
