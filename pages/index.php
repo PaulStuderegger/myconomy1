@@ -27,58 +27,56 @@ session_start();
 <body>
   <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
-    <div class="bg-white" id="sidebar-wrapper">
-      <?php
-        if (isset($_SESSION['logged']))
-        {
-          include ("../components/sidebar/sidebar_post_login.php");
-        }
-        else
-        {
-          include ("../components/sidebar/sidebar_pre_login.php");
-        }
-      ?>
+    <?php
+      if (isset($_SESSION['logged']))
+      {
+        include ("../components/sidebar/sidebar_post_login.php");
+      }
+      else
+      {
+        include ("../components/sidebar/sidebar_pre_login.php");
+      }
+    ?>
 
-      <!-- Page Content -->
-      <div id="page-content-wrapper">
-        <div class="container-fluid px-4">
-          <?php
-             if (isset($_GET["menu"]))
-             {
-              switch ($_GET["menu"])
-              {
-                case "dashboard":
-                  include ("../components/functions/dashboard.php");
-                  break;
-                case "template":
-                  include ("../components/template.php");
-                  break;
-                case "signin":
-                  include ("../components/forms/signin.php");
-                  break;
-                case "signup":
-                  include ("../components/forms/signup.php");
-                  break;
-                  case "kontakt":
-                    include ("../components/forms/kontakt.php");
-                    break;
-                case "datenschutz":
-                  include ("../components/other/datenschutz.php");
-                  break;
-                case "impressum":
-                  include ("../components/other/impressum.php");
-                  break;
-                default:
-                  include ("../components/functions/functions.php");
-                  break;
-              }
-             }
-             else
-             {
-              include ("../components/functions/functions.php");
-             }
-          ?>
-        </div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid px-4">
+        <?php
+          if (isset($_GET["menu"]))
+          {
+            switch ($_GET["menu"])
+            {
+              case "dashboard":
+                include ("../components/functions/dashboard.php");
+                break;
+              case "template":
+                include ("../components/template.php");
+                break;
+              case "signin":
+                include ("../components/forms/signin.php");
+                break;
+              case "signup":
+                include ("../components/forms/signup.php");
+                break;
+              case "kontakt":
+                include ("../components/forms/kontakt.php");
+                break;
+              case "datenschutz":
+                include ("../components/other/datenschutz.php");
+                break;
+              case "impressum":
+                include ("../components/other/impressum.php");
+                break;
+              default:
+                include ("../components/functions/functions.php");
+                break;
+            }
+          }
+          else
+          {
+            include ("../components/functions/functions.php");
+          }
+        ?>
       </div>
     </div>
   </div>    
