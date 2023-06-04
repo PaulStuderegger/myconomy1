@@ -2,7 +2,31 @@
     <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold border-bottom">
         <i class="fas fa-money-bill-wave me-2"></i>MyConomy
     </div>
-      
+    
+    <div class="list-group list-group-flush my-3 border-bottom">
+        <span class="list-group-item list-group-item-action bg-transparent main-text fw-bold text-center">
+            <?php echo $_SESSION['loggedUser']["UserName"]; ?>
+        </span>
+        
+        <form method="post">
+            <button type="submit" name="logoutbtn">
+                <i class="fas fa-power-off me-2"></i>
+                Abmelden
+            </button>
+        </form>
+        <?php
+            if (array_key_exists('logoutbtn', $_POST))
+            {
+                // Destroy all session data
+                session_unset();
+                session_destroy();
+                
+                header("Location: index.php");
+                exit;
+            }
+        ?>
+    </div>
+
     <div class="list-group list-group-flush my-3">
         <a href="?menu=funktionen" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-list me-2"></i>

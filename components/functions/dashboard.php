@@ -15,10 +15,6 @@ require_once "..\classes" . DIRECTORY_SEPARATOR . "transaction.php";
         <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
         <h2 class="fs-2 m-0">Dashboard</h2>
     </div>
-
-    <?php
-        include ("../components/other/user_logout.php");
-    ?>
 </nav>
 
 <div class="container-fluid px-4">

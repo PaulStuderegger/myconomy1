@@ -4,11 +4,6 @@
     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
     <h2 class="fs-2 m-0">Impressum</h2>
   </div>
-
-  <!-- user logout -->
-  <?php
-    include ("../components/other/user_logout.php");
-  ?>
 </nav>
 
 <!-- main content -->
