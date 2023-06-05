@@ -21,6 +21,7 @@ session_start();
     <link rel="stylesheet" href="../styles/fonts.css" />
     <link rel="stylesheet" href="../styles/forms.css" />
     <link rel="stylesheet" href="../styles/functions.css" />
+    <link rel="stylesheet" href="../styles/sidebar.css" />
     <link rel="stylesheet" href="../styles/styles.css" />
 </head>
 
