@@ -44,7 +44,7 @@
             <i class="fas fa-chart-area me-2"></i>
             Prognose
         </a>
-        <a href="?menu=dashboard" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+        <a href="?menu=savinggoal" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-piggy-bank me-2"></i>
             Sparen
         </a>
