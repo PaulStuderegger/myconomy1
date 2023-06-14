@@ -36,7 +36,7 @@
             <i class="fas fa-balance-scale me-2"></i>
             Bilanz
         </a>
-        <a href="?menu=dashboard" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+        <a href="?menu=calender" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-calendar-alt me-2"></i>
             Kalender
         </a>

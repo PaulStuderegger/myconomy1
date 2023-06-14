@@ -57,6 +57,9 @@ session_start();
               case "template":
                 include ("../components/template.php");
                 break;
+              case "calender":
+                include ("../components/functions/calender.php");
+                break;
               case "signin":
                 include ("../components/forms/signin.php");
                 break;
