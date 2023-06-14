@@ -68,16 +68,12 @@ class Transaction extends Database
 			return false;
 		}
 	}
-
 	public function InsertTransactionToDB()
 	{
         $stmt = $this->pdo->prepare("INSERT INTO transaction(TransactionId, TransactionAmount, TransactionDate, BalanceId, TransactionTypeId, CalenderEventId) VALUES (?,?,?,?,?,?)");
 		$stmt->execute([$this->TransactionId, $this->TransactionAmount, $this->TransactionDate, $this->BalanceId, $this->TransactionTypeId, $this->CalenderEventId]);
-	}
-
-	public function UpdateBalanceWithTransaction($Transaction)
-	{
-        $stmt = $this->pdo->prepare("UPDATE Balance SET BalanceAmount = BalanceAmount + TransactionAmount  WHERE BalanceId = ?");
-		$stmt->execute([Balance::GetBalanceByUserId($_SESSION["UserId"]["BalanceId"]), $Transaction->TransactionAmount]);
+		
+        $stmt = $this->pdo->prepare("UPDATE Balance SET BalanceAmount = BalanceAmount + ?  WHERE BalanceId = ?");
+		$stmt->execute([$this->TransactionAmount, Balance::GetBalanceByUserId($_SESSION["UserId"])["BalanceId"]]);
 	}
 }

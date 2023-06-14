@@ -49,7 +49,7 @@ session_start();
             switch ($_GET["menu"])
             {
               case "savinggoal":
-                include ("../components/functions/savinggoal.php");
+                include ("../components/functions/savinggoal.php"); 
                 break;
               case "dashboard":
                 include ("../components/functions/dashboard.php");
