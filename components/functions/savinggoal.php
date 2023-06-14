@@ -67,86 +67,34 @@
       </div>
     </div>
 
-    <!-- Tabelle für Eingabe von Sparziel/Monat -->
+    <!-- Form für Sparbetrag Eingabe -->
     <div class="col-md-4">
       <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
-        <form action="" method="post">
-          <!-- Speichern Button-->
           <div class="row">
-            <div class="col"></div>
             <div class="col">
               <div class="form-group">
-                <input class="form-control btn btn-success" type="submit" name="save-savingamount" value="Speichern">
+                <label class="form-label" for="email">Produkt per Klick auswählen:</label>
+                <select class="form-control" name="savinggoalname">
+                  <option value="savinggoal">Fernseher</option>
+                  <option value="savinggoal">PC</option>
+                  <option value="savinggoal">Auto</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label class="form-label" for="email">Sparbetrag:</label>
+                <input class="form-control" type="number" max="" name="savingamount" required>
               </div>
             </div>
           </div>
 
-          <!-- Monatstabelle -->
+          <br>
+
           <div class="form-group">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Monat</th>
-                  <th>Sparbetrag</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Jänner</td>
-                  <td><input class="form-control" type="number" name="savingamount-january" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>Februar</td>
-                  <td><input class="form-control" type="number" name="savingamount-february" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>März</td>
-                  <td><input class="form-control" type="number" name="savingamount-march" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>April</td>
-                  <td><input class="form-control" type="number" name="savingamount-april" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>Mai</td>
-                  <td><input class="form-control" type="number" name="savingamount-may" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>Juni</td>
-                  <td><input class="form-control" type="number" name="savingamount-june" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>Juli</td>
-                  <td><input class="form-control" type="number" name="savingamount-july" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>August</td>
-                  <td><input class="form-control" type="number" name="savingamount-august" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>September</td>
-                  <td><input class="form-control" type="number" name="savingamount-september" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>Oktober</td>
-                  <td><input class="form-control" type="number" name="savingamount-october" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>November</td>
-                  <td><input class="form-control" type="number" name="savingamount-november" placeholder="Betrag" required></td>
-                </tr>
-                <tr>
-                  <td>Dezember</td>
-                  <td><input class="form-control" type="number" name="savingamount-december" placeholder="Betrag" required></td>
-                </tr>
-              </tbody>
-            </table>
+            <input class="form-control btn btn-success" type="submit" name="save-savingamount" value="Speichern">
           </div>
         </form>
-
-        <label class="fw-bold" for="total-savingamount">Gesamt: </label>
-        <label for="">...</label>
-
       </div>
     </div>
 
