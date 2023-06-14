@@ -46,7 +46,7 @@
         </a>
         <a href="?menu=savinggoal" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-piggy-bank me-2"></i>
-            Sparen
+            Sparziele
         </a>
         <a href="?menu=kontakt" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-envelope me-2"></i>
