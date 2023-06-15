@@ -17,10 +17,14 @@
                 <div>
                     <img src="../assets/img/func_dashboard.png" alt="Dashboard">
                 </div>
-                <div class="overlay">
-                    <h3 class="white-text">Bilanz</h3>
-                    <p class="white-text">Lorem ipsum dolor sit met, ...</p>
-                </div>
+                <a href=".././pages/index.php?menu=balance">
+                    <div class="overlay">
+                        <h3 class="white-text">Bilanz</h3>
+                        <p class="white-text">Eine genaue Übersicht von bisherigen Einnahmen und Ausgaben. 
+                            Auch Ihr Kontostand wird hier angezeigt. Ein kleiner Tipp: grün ist gut, rot ist schlecht!
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -31,10 +35,15 @@
                 <div>
                     <img src="../assets/img/func_calendar.png" alt="Kalender">
                 </div>
+                <a href=".././pages/index.php?menu=calender">
                 <div class="overlay">
                     <h3 class="white-text">Kalender</h3>
-                    <p class="white-text">Lorem ipsum dolor sit met, ...</p>
+                    <p class="white-text">Tragen Sie besondere Anlässe in den Kalender ein. 
+                        Sie können ein Budget dafür bestimmen und sehen auf diese Weise gleich,
+                        mit welchen zusätzlichen Ausgaben Sie rechnen sollten.
+                    </p>
                 </div>
+                </a>
             </div>
         </div>
 
@@ -48,10 +57,15 @@
                 <div>
                     <img src="../assets/img/func_forecast.png" alt="Dashboard">
                 </div>
+                <a href=".././pages/index.php?menu=prognosis">
                 <div class="overlay">
                     <h3 class="white-text">Prognose</h3>
-                    <p class="white-text">Lorem ipsum dolor sit met, ...</p>
+                    <p class="white-text">Wir berechnen auf Basis Ihrer bisherigen Einnahmen und Ausgaben, 
+                        wie viel Geld im Durchschnitt am Ende des Monats übrig bleibt. Werfen Sie einen Blick 
+                        darauf und passen Sie Ihre Finanzen bei Bedarf an.
+                    </p>
                 </div>
+                </a>
             </div>
         </div>
 
@@ -62,10 +76,15 @@
                 <div>
                     <img src="../assets/img/func_savings.png" alt="Sparen">
                 </div>
+                <a href=".././pages/index.php?menu=savinggoal">
                 <div class="overlay">
                     <h3 class="white-text">Sparen</h3>
-                    <p class="white-text">Lorem ipsum dolor sit met, ...</p>
+                    <p class="white-text">Legen Sie Sparziele als Erinnerung fest,
+                        regelmäßig einen bestimmten Betrag zur Seite zu legen. So können Sie 
+                        größere Anschaffungen planen und behalten beim Sparen immer den Überblick!
+                    </p>
                 </div>
+                </a>
             </div>
         </div>
 
