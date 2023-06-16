@@ -1,6 +1,3 @@
--- TEST TO TEST GITIGNORE FILE
-
-
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -111,6 +108,25 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `MyConomy`.`SavingGoal`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `MyConomy`.`SavingGoal` (
+  `SavingGoalId` INT NOT NULL AUTO_INCREMENT,
+  `SavingGoalName` VARCHAR(45) NOT NULL,
+  `SavingGoalAmount` INT NOT NULL,
+  `SavingGoalRestAmount` INT NOT NULL,
+  `UserId` INT NOT NULL,
+  PRIMARY KEY (`SavingGoalId`),
+  INDEX `fk_SavingGoal_User1_idx` (`UserId` ASC) VISIBLE,
+  CONSTRAINT `fk_SavingGoal_User1`
+    FOREIGN KEY (`UserId`)
+    REFERENCES `MyConomy`.`User` (`UserId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `MyConomy`.`Transaction`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `MyConomy`.`Transaction` (
@@ -120,10 +136,12 @@ CREATE TABLE IF NOT EXISTS `MyConomy`.`Transaction` (
   `TransactionTypeId` INT NOT NULL,
   `BalanceId` INT NOT NULL,
   `CalenderEventId` INT NULL,
+  `SavingGoal_SavingGoalId` INT NULL,
   PRIMARY KEY (`TransactionId`),
   INDEX `fk_Transaction_TransactionType1_idx` (`TransactionTypeId` ASC) VISIBLE,
   INDEX `fk_Transaction_Balance1_idx` (`BalanceId` ASC) VISIBLE,
   INDEX `fk_Transaction_CalenderEvent1_idx` (`CalenderEventId` ASC) VISIBLE,
+  INDEX `fk_Transaction_SavingGoal1_idx` (`SavingGoal_SavingGoalId` ASC) VISIBLE,
   CONSTRAINT `fk_Transaction_TransactionType1`
     FOREIGN KEY (`TransactionTypeId`)
     REFERENCES `MyConomy`.`TransactionType` (`TransactionTypeId`)
@@ -137,6 +155,11 @@ CREATE TABLE IF NOT EXISTS `MyConomy`.`Transaction` (
   CONSTRAINT `fk_Transaction_CalenderEvent1`
     FOREIGN KEY (`CalenderEventId`)
     REFERENCES `MyConomy`.`CalenderEvent` (`CalenderEventId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Transaction_SavingGoal1`
+    FOREIGN KEY (`SavingGoal_SavingGoalId`)
+    REFERENCES `MyConomy`.`SavingGoal` (`SavingGoalId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -168,6 +191,8 @@ INSERT INTO `MyConomy`.`TransactionType` (`TransactionTypeId`, `TransactionType`
 INSERT INTO `MyConomy`.`TransactionType` (`TransactionTypeId`, `TransactionType`) VALUES (DEFAULT, 'Gehalt');
 INSERT INTO `MyConomy`.`TransactionType` (`TransactionTypeId`, `TransactionType`) VALUES (DEFAULT, 'Einkaufen');
 INSERT INTO `MyConomy`.`TransactionType` (`TransactionTypeId`, `TransactionType`) VALUES (DEFAULT, 'Fixeinnahmen');
+INSERT INTO `MyConomy`.`TransactionType` (`TransactionTypeId`, `TransactionType`) VALUES (DEFAULT, 'Fixausgaben');
+INSERT INTO `MyConomy`.`TransactionType` (`TransactionTypeId`, `TransactionType`) VALUES (DEFAULT, 'Sparziel');
 
 COMMIT;
 
@@ -215,13 +240,26 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `MyConomy`.`SavingGoal`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `MyConomy`;
+INSERT INTO `MyConomy`.`SavingGoal` (`SavingGoalId`, `SavingGoalName`, `SavingGoalAmount`, `SavingGoalRestAmount`, `UserId`) VALUES (DEFAULT, 'Auto', 5000, 3500, 1);
+INSERT INTO `MyConomy`.`SavingGoal` (`SavingGoalId`, `SavingGoalName`, `SavingGoalAmount`, `SavingGoalRestAmount`, `UserId`) VALUES (DEFAULT, 'Kebap', 6, 2, 1);
+INSERT INTO `MyConomy`.`SavingGoal` (`SavingGoalId`, `SavingGoalName`, `SavingGoalAmount`, `SavingGoalRestAmount`, `UserId`) VALUES (DEFAULT, 'Spaß', 100, 35, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `MyConomy`.`Transaction`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `MyConomy`;
-INSERT INTO `MyConomy`.`Transaction` (`TransactionId`, `TransactionAmount`, `TransactionDate`, `TransactionTypeId`, `BalanceId`, `CalenderEventId`) VALUES (DEFAULT, 50, '2023-04-15', 6, 1, 1);
-INSERT INTO `MyConomy`.`Transaction` (`TransactionId`, `TransactionAmount`, `TransactionDate`, `TransactionTypeId`, `BalanceId`, `CalenderEventId`) VALUES (DEFAULT, -1000, '2022-11-23', 2, 1, NULL);
-INSERT INTO `MyConomy`.`Transaction` (`TransactionId`, `TransactionAmount`, `TransactionDate`, `TransactionTypeId`, `BalanceId`, `CalenderEventId`) VALUES (DEFAULT, 150, '2021-05-10', 6, 1, NULL);
+INSERT INTO `MyConomy`.`Transaction` (`TransactionId`, `TransactionAmount`, `TransactionDate`, `TransactionTypeId`, `BalanceId`, `CalenderEventId`, `SavingGoal_SavingGoalId`) VALUES (DEFAULT, 50, '2023-04-15', 6, 1, 1, NULL);
+INSERT INTO `MyConomy`.`Transaction` (`TransactionId`, `TransactionAmount`, `TransactionDate`, `TransactionTypeId`, `BalanceId`, `CalenderEventId`, `SavingGoal_SavingGoalId`) VALUES (DEFAULT, -1000, '2022-11-23', 2, 1, NULL, NULL);
+INSERT INTO `MyConomy`.`Transaction` (`TransactionId`, `TransactionAmount`, `TransactionDate`, `TransactionTypeId`, `BalanceId`, `CalenderEventId`, `SavingGoal_SavingGoalId`) VALUES (DEFAULT, 150, '2021-05-10', 6, 1, NULL, NULL);
+INSERT INTO `MyConomy`.`Transaction` (`TransactionId`, `TransactionAmount`, `TransactionDate`, `TransactionTypeId`, `BalanceId`, `CalenderEventId`, `SavingGoal_SavingGoalId`) VALUES (DEFAULT, -1.50, '1983-05-11', 7, 1, NULL, NULL);
 
 COMMIT;
 
