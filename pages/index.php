@@ -2,6 +2,7 @@
 require_once "..\classes\utils.php";
 // Utils::resetDb();
 session_start();
+require_once "..\classes\savegoad.php";
 ?>
 
 <!DOCTYPE html>

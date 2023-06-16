@@ -1,5 +1,6 @@
 <?php
 require_once "dbconfig.php";
+require_once "transaction.php";
 class Savegoal extends Transaction
 {
 	public $SaveGoalId;
@@ -48,6 +49,21 @@ class Savegoal extends Transaction
 
 		if ($res) {
 			return new Calender($res["SaveGoalId"], $res["SaveGoalName"], $res["SaveGoalAmount"], $res["SaveGoalRestAmount"]);
+		}
+		else {
+			return false;
+		}
+	}
+
+	public static function GetAllSaveGoalsForUser($Id)
+	{
+		$db = new Database();
+		$stmt = $db->pdo->prepare("SELECT * FROM SavingGoal WHERE UserId = ?");
+		$stmt->execute([$Id]);
+		$res = $stmt->fetchAll();
+
+		if ($res) {
+			return $res;
 		}
 		else {
 			return false;

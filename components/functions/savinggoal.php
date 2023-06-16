@@ -55,14 +55,29 @@
       <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
         <table class="table table-striped">
           <thead>
-            <thead>
-              <tr>
-                <th>Produkt</th>
-                <th>Preis</th>
-                <th>Restbetrag</th>
-              </tr>
-            </thead>
+            <tr>
+              <th>Produkt</th>
+              <th>Preis</th>
+              <th>Restbetrag</th>
+            </tr>
           </thead>
+          <tbody>
+            <?php
+                  $SaveGoals = Savegoal::GetAllSaveGoalsForUser($_SESSION['loggedUser']["UserId"]);
+                  if ($SaveGoals) 
+                  {
+                      foreach ($SaveGoals as $SaveGoalsDS) {
+                          echo "<tr>";
+                          echo "<td>" . $SaveGoalsDS["SavingGoalName"] . "</td>";
+                          echo "<td>" . $SaveGoalsDS["SavingGoalAmount"] . "</td>";
+                          echo "<td>" . "<div class='progress'>
+                          <div class='progress-bar  bg-success' role='progressbar' style='width:" . 100 - ($SaveGoalsDS["SavingGoalRestAmount"] / $SaveGoalsDS["SavingGoalAmount"]) * 100 . "%;' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100'>" . $SaveGoalsDS["SavingGoalAmount"] - $SaveGoalsDS["SavingGoalRestAmount"] . "</div>
+                        </div></td>";
+                          echo '</tr>';
+                      }
+                  }
+              ?>
+            </tbody>
         </table>
       </div>
     </div>
