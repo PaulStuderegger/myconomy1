@@ -32,7 +32,7 @@
             <i class="fas fa-list me-2"></i>
             Funktionen
         </a>
-        <a href="?menu=dashboard" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+        <a href="?menu=balance" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fas fa-balance-scale me-2"></i>
             Bilanz
         </a>

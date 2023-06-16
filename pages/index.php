@@ -52,8 +52,8 @@ require_once "..\classes\savegoad.php";
               case "savinggoal":
                 include ("../components/functions/savinggoal.php"); 
                 break;
-              case "dashboard":
-                include ("../components/functions/dashboard.php");
+              case "balance":
+                include ("../components/functions/balance.php");
                 break;
               case "template":
                 include ("../components/template.php");
