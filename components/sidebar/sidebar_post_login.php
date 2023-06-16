@@ -1,6 +1,6 @@
 <div class="bg-white" id="sidebar-wrapper">
     <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold border-bottom">
-        <i class="fas fa-money-bill-wave me-2"></i>MyConomy
+        <img class="img-logo" src="../assets/img/myconomy_logo.png" alt="Logo"> MyConomy
     </div>
     
     <div class="list-group list-group-flush my-3 text-center">

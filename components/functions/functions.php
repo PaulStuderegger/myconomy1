@@ -15,7 +15,7 @@
         <div class="col-md-4">
             <div class="info-container p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
                 <div>
-                    <img src="../assets/img/func_dashboard.png" alt="Dashboard">
+                    <img class="img-functions" src="../assets/img/func_dashboard.png" alt="Dashboard">
                 </div>
                 <a href=".././pages/index.php?menu=balance">
                     <div class="overlay">
@@ -33,7 +33,7 @@
         <div class="col-md-4">
             <div class="info-container p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
                 <div>
-                    <img src="../assets/img/func_calendar.png" alt="Kalender">
+                    <img class="img-functions" src="../assets/img/func_calendar.png" alt="Kalender">
                 </div>
                 <a href=".././pages/index.php?menu=calender">
                 <div class="overlay">
@@ -55,7 +55,7 @@
         <div class="col-md-4">
             <div class="info-container p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
                 <div>
-                    <img src="../assets/img/func_forecast.png" alt="Dashboard">
+                    <img class="img-functions" src="../assets/img/func_forecast.png" alt="Dashboard">
                 </div>
                 <a href=".././pages/index.php?menu=prognosis">
                 <div class="overlay">
@@ -74,7 +74,7 @@
         <div class="col-md-4">
             <div class="info-container p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
                 <div>
-                    <img src="../assets/img/func_savings.png" alt="Sparen">
+                    <img class="img-functions" src="../assets/img/func_savings.png" alt="Sparen">
                 </div>
                 <a href=".././pages/index.php?menu=savinggoal">
                 <div class="overlay">
