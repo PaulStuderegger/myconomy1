@@ -74,6 +74,6 @@ class Transaction extends Database
 		$stmt->execute([$this->TransactionId, $this->TransactionAmount, $this->TransactionDate, $this->BalanceId, $this->TransactionTypeId, $this->CalenderEventId]);
 		
         $stmt = $this->pdo->prepare("UPDATE Balance SET BalanceAmount = BalanceAmount + ?  WHERE BalanceId = ?");
-		$stmt->execute([$this->TransactionAmount, Balance::GetBalanceByUserId($_SESSION["UserId"])["BalanceId"]]);
+		$stmt->execute([$this->TransactionAmount, Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"])->BalanceId]);
 	}
 }

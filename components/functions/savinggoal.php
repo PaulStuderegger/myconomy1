@@ -1,3 +1,15 @@
+<?php 
+  if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    if (isset($_POST["delete-product"])) {
+      Savegoal::DeleteSaveGoal(Savegoal::GetSavegoalByName($_POST["productname"])->SaveGoalId);
+    }
+    if (isset($_POST["save-product"])) {
+      $newSaveGoal = new Savegoal(null, $_POST["productname"], $_POST["price"], 0, $_SESSION['loggedUser']["UserId"]);
+      $newSaveGoal->InsertSavegoalToDB();
+    }
+  }
+?>
+
 <!-- header -->
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
   <div class="d-flex align-items-center">
@@ -90,9 +102,15 @@
               <div class="form-group">
                 <label class="form-label" for="email">Produkt per Klick auswählen:</label>
                 <select class="form-control" name="savinggoalname">
-                  <option value="savinggoal">Fernseher</option>
-                  <option value="savinggoal">PC</option>
-                  <option value="savinggoal">Auto</option>
+                  <?php
+                      $SaveGoals = Savegoal::GetAllSaveGoalsForUser($_SESSION['loggedUser']["UserId"]);
+                      if ($SaveGoals) 
+                      {
+                          foreach ($SaveGoals as $SaveGoalsDS) {
+                              echo "<option value=" . $SaveGoalsDS["SavingGoalId"] . ">" . $SaveGoalsDS["SavingGoalName"] . "</option>";
+                          }
+                      }
+                  ?>
                 </select>
               </div>
             </div>

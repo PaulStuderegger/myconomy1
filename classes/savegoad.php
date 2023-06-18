@@ -7,22 +7,22 @@ class Savegoal extends Transaction
 	public $SaveGoalName;
 	public $SaveGoalAmount;
 	public $SaveGoalRestAmount;
+	public $UserId;
 
-	function __construct($SaveGoalId = null, $SaveGoalName = null, $SaveGoalAmount = null, $SaveGoalRestAmount = null)
+	function __construct($SaveGoalId = null, $SaveGoalName = null, $SaveGoalAmount = null, $SaveGoalRestAmount = null, $UserId = null)
 	{
 		parent::__construct();
 		$this->SaveGoalId = $SaveGoalId;
 		$this->SaveGoalName = $SaveGoalName;
 		$this->SaveGoalAmount = $SaveGoalAmount;
 		$this->SaveGoalRestAmount = $SaveGoalRestAmount;
+		$this->UserId = $UserId;
 	}
     
 	public function InsertSavegoalToDB()
 	{
-        $stmt = $this->pdo->prepare("INSERT INTO SaveGoal(SaveGoalId, SaveGoalName, SaveGoalAmount, SaveGoalRestAmount) VALUES (?,?,?,?)");
-		$stmt->execute([$this->SaveGoalId, $this->SaveGoalName, $this->SaveGoalAmount, $this->SaveGoalRestAmount]);
-		$newtransaction = new Transaction(Utils::nextId("SaveGoal"), -$this->SaveGoalAmount, date('Y-m-d'),null ,null ,null);
-		$newtransaction->InsertTransactionToDB();
+        $stmt = $this->pdo->prepare("INSERT INTO SavingGoal(savingGoalId, savingGoalName, savingGoalAmount, savingGoalRestAmount, userid) VALUES (?,?,?,?,?)");
+		$stmt->execute([Utils::nextId("savinggoal"), $this->SaveGoalName, $this->SaveGoalAmount, $this->SaveGoalAmount, $this->UserId]);
 	}
 
 	public static function GetSavegoalById($id)
@@ -33,7 +33,7 @@ class Savegoal extends Transaction
 		$res = $stmt->fetch();
 
 		if ($res) {
-			return new Calender($res["SaveGoalId"], $res["SaveGoalName"], $res["SaveGoalAmount"], $res["SaveGoalRestAmount"]);
+			return new SaveGoal($res["SaveGoalId"], $res["SaveGoalName"], $res["SaveGoalAmount"], $res["SaveGoalRestAmount"]);
 		}
 		else {
 			return false;
@@ -48,7 +48,7 @@ class Savegoal extends Transaction
 		$res = $stmt->fetch();
 
 		if ($res) {
-			return new Calender($res["SaveGoalId"], $res["SaveGoalName"], $res["SaveGoalAmount"], $res["SaveGoalRestAmount"]);
+			return new SaveGoal($res["SaveGoalId"], $res["SaveGoalName"], $res["SaveGoalAmount"], $res["SaveGoalRestAmount"]);
 		}
 		else {
 			return false;
@@ -68,5 +68,18 @@ class Savegoal extends Transaction
 		else {
 			return false;
 		}
+	}
+
+	public static function DeleteSaveGoal($Id)
+	{
+		$db = new Database();
+		$stmt = $db->pdo->prepare("DELETE FROM SavingGoal WHERE SavingGoalId = ?");
+		return $stmt->execute([$Id]);
+	}
+	public static function UpdateSaveGoal($Id)
+	{
+		$db = new Database();
+		$stmt = $db->pdo->prepare("UPDATE SET SavingGoalRestAmount =  FROM SavingGoal WHERE SavingGoalId = ?");
+		return $stmt->execute([$Id]);
 	}
 }
