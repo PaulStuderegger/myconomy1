@@ -76,10 +76,17 @@ class Savegoal extends Transaction
 		$stmt = $db->pdo->prepare("DELETE FROM SavingGoal WHERE SavingGoalId = ?");
 		return $stmt->execute([$Id]);
 	}
-	public static function UpdateSaveGoal($Id)
+	public static function UpdateSaveGoal($Id, $SavingAmount)
 	{
 		$db = new Database();
-		$stmt = $db->pdo->prepare("UPDATE SET SavingGoalRestAmount =  FROM SavingGoal WHERE SavingGoalId = ?");
-		return $stmt->execute([$Id]);
+		$stmt = $db->pdo->prepare("UPDATE SavingGoal SET SavingGoalRestAmount = SavingGoalRestAmount - ? WHERE SavingGoalId = ?");
+		$res = $stmt->execute([$SavingAmount, $Id]);
+
+		if ($res) {
+			$newTransaction = new Transaction(Utils::nextId("Transaction"), -$SavingAmount, date("y-m-d"), 8, Balance::GetBalanceByUserId($_SESSION["loggedUser"]["UserId"])->BalanceId, null);
+			$newTransaction->InsertTransactionToDB();
+			return true;
+		}
+		return false;
 	}
 }

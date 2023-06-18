@@ -36,6 +36,7 @@ class Transaction extends Database
 				JOIN balance USING (BalanceId)
 				JOIN user USING (UserId)
 			WHERE User.UserId = ?
+			ORDER BY TransactionId desc
 			LIMIT ?;
 		");
 		$stmt->execute([$id, $Amount]);
