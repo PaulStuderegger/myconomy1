@@ -94,3 +94,4 @@ require_once "..\classes" . DIRECTORY_SEPARATOR . "transaction.php";
         </div>
     </div>
 </div>
+<?php User::BuildColumnDiagram($_SESSION["loggedUser"]["UserId"]);

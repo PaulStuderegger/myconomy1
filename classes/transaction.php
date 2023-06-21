@@ -77,4 +77,44 @@ class Transaction extends Database
         $stmt = $this->pdo->prepare("UPDATE Balance SET BalanceAmount = BalanceAmount + ?  WHERE BalanceId = ?");
 		$stmt->execute([$this->TransactionAmount, Balance::GetBalanceByUserId($_SESSION['loggedUser']["UserId"])->BalanceId]);
 	}
+
+	public static function GetTransactionsByUserIdPerMonth($id)
+	{
+		$db = new Database();
+		$stmt = $db->pdo->prepare("SELECT YEAR(t.TransactionDate) AS Year, MONTH(t.TransactionDate) AS Month, 
+        SUM(CASE WHEN t.TransactionAmount > 0 THEN t.TransactionAmount ELSE 0 END) AS PositiveAmount,
+        SUM(CASE WHEN t.TransactionAmount < 0 THEN t.TransactionAmount ELSE 0 END) AS NegativeAmount
+        FROM `Transaction` t
+        INNER JOIN `Balance` b ON b.BalanceId = t.BalanceId
+        INNER JOIN `User` u ON u.UserId = b.UserId
+        WHERE u.UserId = ? AND YEAR(t.TransactionDate) = YEAR(now())
+        GROUP BY Year, Month");
+		$stmt->execute([$id]);
+		$res = $stmt->fetchAll();
+		
+		if ($res) {
+			return $res;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public static function FillColumnDiagram() {
+		$data = Transaction::GetTransactionsByUserIdPerMonth(1);
+		$datapoints1 = array();
+		$datapoints2 = array();
+
+		foreach ($data as $res) {
+			$datapoints1 = array("label"=> $res["Month"], "y"=> $res["PositiveAmount"]);
+		}
+		foreach ($data as $res) {
+			$datapoints2 = array("label"=> $res["Month"], "y"=> $res["NegativeAmount"]);
+		}
+		
+		$DiagramData = array();
+		$DiagramData[1] = $datapoints1;
+		$DiagramData[2] = $datapoints2;
+		return $DiagramData;
+	}
 }
