@@ -25,6 +25,7 @@ class User extends Database
 		$stmt->execute([$this->UserName, $this->EMail, $hashedPassword]);
 
 		$this->ConnectUserToBalance();
+		$this->ConnectUserToCalender();
 	}
 
     public static function ValidateUserSignIn($UserName, $Password)

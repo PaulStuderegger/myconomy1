@@ -15,7 +15,7 @@ class Balance extends Database
 		$this->BalanceAmount = $BalanceAmount;
 		$this->BalanceDate = $BalanceDate;
 		$this->UserId = $UserId;
-	}
+	} 
     
     public static function GetBalanceByUserId($id)
 	{

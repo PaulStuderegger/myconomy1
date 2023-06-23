@@ -34,4 +34,19 @@ class Calender extends Database
 			return false;
 		}
 	}
+
+	public static function GetCalenderByUserId($id)
+	{
+		$db = new Database();
+		$stmt = $db->pdo->prepare("SELECT * FROM Calender WHERE UserId = ?");
+		$stmt->execute([$id]);
+		$res = $stmt->fetch();
+
+		if ($res) {
+			return new Calender($res["CalenderId"], $res["CalenderName"], $res["UserId"]);
+		}
+		else {
+			return false;
+		}
+	}
 }

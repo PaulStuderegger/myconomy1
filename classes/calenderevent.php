@@ -1,5 +1,6 @@
 <?php
 require_once "dbconfig.php";
+require_once "calender.php";
 class CalenderEvent extends Calender
 {
 	public $CalenderEventId;
@@ -45,5 +46,13 @@ class CalenderEvent extends Calender
 		else {
 			return false;
 		}
+	}
+    
+    public static function GetCalenderEventsForCalender($CalenderId)
+	{
+		$db = new Database();
+		$stmt = $db->pdo->prepare("select * from calenderevent where calenderid = ?;");
+		$stmt->execute([$CalenderId]);
+		return $stmt->fetchAll();
 	}
 }

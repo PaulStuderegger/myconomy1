@@ -25,6 +25,7 @@ require_once "..\classes\savegoad.php";
     <link rel="stylesheet" href="../styles/functions.css" />
     <link rel="stylesheet" href="../styles/sidebar.css" />
     <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/calender.css" type="text/css" />
 </head>
 
 <body>
