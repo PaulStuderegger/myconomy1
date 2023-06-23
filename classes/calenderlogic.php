@@ -12,9 +12,9 @@ class CalendarLogic extends Database {
         $this->active_day = $date != null ? date('d', strtotime($date)) : date('d');
     }
 
-    public function add_event($txt, $date, $days = 1, $color = '') {
+    public function add_event($txt, $date, $days = 1, $color = '', $value = null) {
         $color = $color ? ' ' . $color : $color;
-        $this->events[] = [$txt, $date, $days, $color];
+        $this->events[] = [$txt, $date, $days, $color, $value];
     }
 
     public function __toString() {
@@ -55,6 +55,9 @@ class CalendarLogic extends Database {
                     if (date('y-m-d', strtotime($this->active_year . '-' . $this->active_month . '-' . $i . ' -' . $d . ' day')) == date('y-m-d', strtotime($event[1]))) {
                         $html .= '<div class="event' . $event[3] . '">';
                         $html .= $event[0];
+                        $html .= '</div>';
+                        $html .= '<div class="event' . $event[2] . '">';
+                        $html .= $event[4];
                         $html .= '</div>';
                     }
                 }
